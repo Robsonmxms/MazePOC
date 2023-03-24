@@ -7,26 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FEFB7D3029CC7263007AE506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D2F29CC7263007AE506 /* AppDelegate.swift */; };
-		FEFB7D3229CC7263007AE506 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEFB7D3129CC7263007AE506 /* GameScene.sks */; };
-		FEFB7D3429CC7263007AE506 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEFB7D3329CC7263007AE506 /* Actions.sks */; };
+		FEFB7D3029CC7263007AE506 /* MazePOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D2F29CC7263007AE506 /* MazePOCApp.swift */; };
 		FEFB7D3629CC7263007AE506 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D3529CC7263007AE506 /* GameScene.swift */; };
-		FEFB7D3829CC7263007AE506 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D3729CC7263007AE506 /* GameViewController.swift */; };
-		FEFB7D3B29CC7263007AE506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEFB7D3929CC7263007AE506 /* Main.storyboard */; };
+		FEFB7D3829CC7263007AE506 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D3729CC7263007AE506 /* GameView.swift */; };
 		FEFB7D3D29CC7264007AE506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEFB7D3C29CC7264007AE506 /* Assets.xcassets */; };
 		FEFB7D4029CC7264007AE506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEFB7D3E29CC7264007AE506 /* LaunchScreen.storyboard */; };
+		FEFB7D4929CCB3D5007AE506 /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D4829CCB3D5007AE506 /* Maze.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FEFB7D2C29CC7263007AE506 /* MazePoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazePoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEFB7D2F29CC7263007AE506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FEFB7D3129CC7263007AE506 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		FEFB7D3329CC7263007AE506 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		FEFB7D2F29CC7263007AE506 /* MazePOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazePOCApp.swift; sourceTree = "<group>"; };
 		FEFB7D3529CC7263007AE506 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		FEFB7D3729CC7263007AE506 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		FEFB7D3A29CC7263007AE506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FEFB7D3729CC7263007AE506 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		FEFB7D3C29CC7264007AE506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEFB7D3F29CC7264007AE506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FEFB7D4829CCB3D5007AE506 /* Maze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +55,10 @@
 		FEFB7D2E29CC7263007AE506 /* MazePoc */ = {
 			isa = PBXGroup;
 			children = (
-				FEFB7D2F29CC7263007AE506 /* AppDelegate.swift */,
-				FEFB7D3129CC7263007AE506 /* GameScene.sks */,
-				FEFB7D3329CC7263007AE506 /* Actions.sks */,
+				FEFB7D2F29CC7263007AE506 /* MazePOCApp.swift */,
 				FEFB7D3529CC7263007AE506 /* GameScene.swift */,
-				FEFB7D3729CC7263007AE506 /* GameViewController.swift */,
-				FEFB7D3929CC7263007AE506 /* Main.storyboard */,
+				FEFB7D4829CCB3D5007AE506 /* Maze.swift */,
+				FEFB7D3729CC7263007AE506 /* GameView.swift */,
 				FEFB7D3C29CC7264007AE506 /* Assets.xcassets */,
 				FEFB7D3E29CC7264007AE506 /* LaunchScreen.storyboard */,
 			);
@@ -129,11 +123,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEFB7D3B29CC7263007AE506 /* Main.storyboard in Resources */,
-				FEFB7D3229CC7263007AE506 /* GameScene.sks in Resources */,
 				FEFB7D3D29CC7264007AE506 /* Assets.xcassets in Resources */,
 				FEFB7D4029CC7264007AE506 /* LaunchScreen.storyboard in Resources */,
-				FEFB7D3429CC7263007AE506 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,22 +136,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEFB7D3629CC7263007AE506 /* GameScene.swift in Sources */,
-				FEFB7D3829CC7263007AE506 /* GameViewController.swift in Sources */,
-				FEFB7D3029CC7263007AE506 /* AppDelegate.swift in Sources */,
+				FEFB7D4929CCB3D5007AE506 /* Maze.swift in Sources */,
+				FEFB7D3829CC7263007AE506 /* GameView.swift in Sources */,
+				FEFB7D3029CC7263007AE506 /* MazePOCApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FEFB7D3929CC7263007AE506 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FEFB7D3A29CC7263007AE506 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FEFB7D3E29CC7264007AE506 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,12 +279,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DVX5N2U74F;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,9 +293,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = robson.MazePoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -323,12 +311,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DVX5N2U74F;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeLeft;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,9 +325,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = robson.MazePoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
