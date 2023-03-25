@@ -27,7 +27,12 @@ class Maze {
         }
 
         while Double(floor.count/walls.count)<0.95 {
-            buildFloor(startPoint: walls.randomElement()!)
+            if floor.isEmpty {
+                buildFloor(startPoint: walls.randomElement()!)
+            } else {
+                buildFloor(startPoint: floor.randomElement()!)
+            }
+
         }
     }
 

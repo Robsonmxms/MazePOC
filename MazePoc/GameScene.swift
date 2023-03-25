@@ -8,7 +8,7 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    private let brickWidth: CGFloat = 40
+    private let brickWidth: CGFloat = 30
 
     override func didMove(to view: SKView) {
 
@@ -22,24 +22,28 @@ class GameScene: SKScene {
             addChild(wallBrick)
         }
 
-        let boyAsCircle = buildCircle(color: .blue, position: floor.randomElement()!)
+        let boyAsCircle = CircleNode(
+            radius: brickWidth/2,
+            position: floor.randomElement()!,
+            color: .blue
+        )
         addChild(boyAsCircle)
 
-        let MomAsCircle = buildCircle(color: .red, position: floor.randomElement()!)
+        let MomAsCircle = CircleNode(
+            radius: brickWidth/2,
+            position: floor.randomElement()!,
+            color: .red
+        )
         addChild(MomAsCircle)
 
-        let DollAsCircle = buildCircle(color: .white, position: floor.randomElement()!)
+        let DollAsCircle = CircleNode(
+            radius: brickWidth/2,
+            position: floor.randomElement()!,
+            color: .white
+        )
         addChild(DollAsCircle)
 
         backgroundColor = .black
-    }
-
-    func buildCircle(color: UIColor, position: CGPoint) -> SKShapeNode {
-        let circle = SKShapeNode(circleOfRadius: brickWidth/2)
-        circle.fillColor = color
-        circle.position = position
-
-        return circle
     }
 }
 
