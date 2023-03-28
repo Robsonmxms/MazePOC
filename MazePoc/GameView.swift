@@ -19,8 +19,6 @@ struct GameView: UIViewRepresentable {
 
         view.presentScene(scene)
 
-        
-
         return view
     }
 

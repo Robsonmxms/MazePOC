@@ -77,7 +77,10 @@ class GameScene: SKScene {
 
         addChild(dollAsCircle)
 
-        backgroundColor = .black
+        let background = SKSpriteNode(imageNamed: "floor")
+        background.position = CGPoint(x: size.width, y: size.height)
+        background.zPosition = -1
+        addChild(background)
 
     }
 
