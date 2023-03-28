@@ -102,9 +102,9 @@ class Maze {
 
         for point in walls {
             let wallBrick = SKSpriteNode(
-                color: .gray,
-                size: CGSize(width: brickWidth, height: brickWidth)
+                imageNamed: "wall"
             )
+            wallBrick.size = CGSize(width: brickWidth, height: brickWidth)
 
             wallBrick.position = point
 
