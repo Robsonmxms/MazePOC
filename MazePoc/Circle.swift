@@ -14,14 +14,17 @@ class CircleNode: SKShapeNode {
 
         self.position = position
 
-        let circle = CGPath(ellipseIn: CGRect(x: -radius, y: -radius, width: radius*2, height: radius*2), transform: nil)
+        let circle = CGPath(ellipseIn: CGRect(x: -radius, y: -radius, width: radius*1.5, height: radius*1.5), transform: nil)
 
         self.path = circle
         self.fillColor = color
         self.strokeColor = .clear
 
         // Configuração da física do nó do círculo
-        self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: (radius*1.5)/2)
+        self.physicsBody?.mass = 4.5
+        self.physicsBody?.allowsRotation = false
+        self.physicsBody?.isDynamic = true
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = 1
         self.physicsBody?.collisionBitMask = 1

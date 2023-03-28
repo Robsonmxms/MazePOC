@@ -15,9 +15,11 @@ struct GameView: UIViewRepresentable {
         view.frame = UIScreen.main.bounds
 
         let scene = GameScene(size: view.bounds.size)
-        scene.scaleMode = .resizeFill
+        scene.scaleMode = .aspectFill
 
         view.presentScene(scene)
+
+        
 
         return view
     }
