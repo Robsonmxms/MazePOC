@@ -8,7 +8,7 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    private let brickWidth: CGFloat = 30
+    private let brickWidth: CGFloat = 20
 
     override func didMove(to view: SKView) {
 
