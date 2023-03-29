@@ -88,9 +88,9 @@ class GameScene: SKScene {
         if let gravityX = manager?.deviceMotion?.gravity.y,
            let gravityY = manager?.deviceMotion?.gravity.x
            {
-            boyAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(gravityX)*150, dy: CGFloat(-gravityY)*150))
-            momAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(gravityX)*150, dy: CGFloat(-gravityY)*150))
-            dollAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(gravityX)*150, dy: CGFloat(-gravityY)*150))
+            boyAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            momAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            dollAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
         }
 
     }
