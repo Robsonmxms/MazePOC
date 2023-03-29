@@ -26,9 +26,9 @@ class CircleNode: SKShapeNode {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.isDynamic = true
         self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.categoryBitMask = 1
-        self.physicsBody?.collisionBitMask = 1
-        self.physicsBody?.contactTestBitMask = 1
+        self.physicsBody?.categoryBitMask = 1 // as categorias às quais um nó pertence e a quais categorias ele deve responder para colisões e outros eventos físicos.
+        self.physicsBody?.collisionBitMask = 1 // em quais nós devo esbarrar?
+        self.physicsBody?.contactTestBitMask = 1 // sobre quais colisões você deseja saber?
     }
 
     required init?(coder aDecoder: NSCoder) {
