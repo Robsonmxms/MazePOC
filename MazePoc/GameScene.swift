@@ -2,13 +2,13 @@
 //  GameScene.swift
 //  MazePoc
 //
-//  Created by Robson Lima Lopes on 23/03/23.
+//  Created by Marcelo De Araújo on 29/03/23.
 //
 
 import SpriteKit
 import CoreMotion
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
 
     private var manager: CMMotionManager? = CMMotionManager()
     private var timer: Timer?
@@ -21,6 +21,8 @@ class GameScene: SKScene {
     private var dollAsCircle: SKShapeNode = SKShapeNode()
 
     override func didMove(to view: SKView) {
+
+        physicsWorld.contactDelegate = self
 
         let frameAdjusted = CGRect(
             x: frame.origin.x,
@@ -86,6 +88,38 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
 
+    }
+
+    func didBegin(_ contact: SKPhysicsContact) {
+        let bodyA = contact.bodyA.node
+        let bodyB = contact.bodyB.node
+
+        // Verifique se a boyAsCircle tocou na dollAsCircle
+        if (bodyA == boyAsCircle && bodyB == dollAsCircle) || (bodyA == dollAsCircle && bodyB == boyAsCircle) {
+            let alert = UIAlertController(title: "Vc pegou a boneca", message: "Parabéns!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            return
+        }
+
+        // Verifique se a momAsCircle tocou na boyAsCircle
+        if (bodyA == momAsCircle && bodyB == boyAsCircle) || (bodyA == boyAsCircle && bodyB == momAsCircle) {
+            let alert = UIAlertController(title: "Mamãe ti pegou", message: "Perdeu", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            return
+        }
+
+        // Verifique se a momAsCircle tocou na dollAsCircle
+        if (bodyA == momAsCircle && bodyB == dollAsCircle) || (bodyA == dollAsCircle && bodyB == momAsCircle) {
+            let alert = UIAlertController(title: "Mamãe pegou a boneca", message: "Vc voltará ao inicio", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            return
+        }
     }
 
     override func update(_ currentTime: TimeInterval) {
