@@ -43,7 +43,11 @@ class GameScene: SKScene {
             repeats: true
         )
 
-        let maze: Maze = Maze(size: size, brickWidth: brickWidth)
+        let maze: Maze = Maze(
+            size: size,
+            brickWidth: brickWidth,
+            floorWallsProportion: 0.1
+        )
 
         let floor: [CGPoint] = maze.getFloor()
 
