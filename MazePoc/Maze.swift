@@ -12,10 +12,16 @@ class Maze {
     private var floor: [CGPoint] = []
     private let brickWidth: CGFloat
     private let size: CGSize
+    private let floorWallsProportion: Double
 
-    init(size: CGSize, brickWidth: CGFloat){
+    init(
+        size: CGSize,
+        brickWidth: CGFloat,
+        floorWallsProportion: Double
+    ){
         self.size = size
         self.brickWidth = brickWidth
+        self.floorWallsProportion = floorWallsProportion
         buildGrid()
     }
 
@@ -26,7 +32,7 @@ class Maze {
             }
         }
 
-        while Double(floor.count/walls.count)<0.95 {
+        while Double(floor.count/walls.count)<floorWallsProportion {
             if floor.isEmpty {
                 buildFloor(startPoint: walls.randomElement()!)
             } else {

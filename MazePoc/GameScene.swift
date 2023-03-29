@@ -43,7 +43,11 @@ class GameScene: SKScene {
             repeats: true
         )
 
-        let maze: Maze = Maze(size: size, brickWidth: brickWidth)
+        let maze: Maze = Maze(
+            size: size,
+            brickWidth: brickWidth,
+            floorWallsProportion: 0.1
+        )
 
         let floor: [CGPoint] = maze.getFloor()
 
@@ -88,9 +92,9 @@ class GameScene: SKScene {
         if let gravityX = manager?.deviceMotion?.gravity.y,
            let gravityY = manager?.deviceMotion?.gravity.x
            {
-            boyAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(gravityX)*150, dy: CGFloat(-gravityY)*150))
-            momAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(gravityX)*150, dy: CGFloat(-gravityY)*150))
-            dollAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(gravityX)*150, dy: CGFloat(-gravityY)*150))
+            boyAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            momAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            dollAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
         }
 
     }
