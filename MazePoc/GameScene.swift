@@ -7,6 +7,7 @@
 
 import SpriteKit
 import CoreMotion
+import SceneKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
@@ -16,9 +17,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     private let brickWidth: CGFloat = 30
 
-    private var boyAsCircle: SKShapeNode = SKShapeNode()
-    private var momAsCircle: SKShapeNode = SKShapeNode()
-    private var dollAsCircle: SKShapeNode = SKShapeNode()
+    lazy var boyAsSphere = SK3DNode(viewportSize: CGSize(width: 30, height: 30))
+    lazy var monAsSphere = SK3DNode(viewportSize: CGSize(width: 30, height: 30))
+    lazy var dollAsSphere = SK3DNode(viewportSize: CGSize(width: 30, height: 30))
 
     override func didMove(to view: SKView) {
 
@@ -59,29 +60,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(wallBrick)
         }
 
-        boyAsCircle = CircleNode(
-            radius: brickWidth/2,
-            position: floor.randomElement()!,
-            color: .blue
-        ) as SKShapeNode
+        let boyPositionX = floor.randomElement()!
 
-        addChild(boyAsCircle)
+        boyAsSphere.scnScene = SCNScene()
+        boyAsSphere.scnScene?.rootNode.addChildNode(SphereNode3D(color: .blue) as SCNNode)
+        boyAsSphere.position = CGPoint(x: frame.midX, y: frame.midY)
+        addChild(boyAsSphere)
 
-        momAsCircle = CircleNode(
-            radius: brickWidth/2,
-            position: floor.randomElement()!,
-            color: .red
-        ) as SKShapeNode
+        monAsSphere.scnScene = SCNScene()
+        monAsSphere.scnScene?.rootNode.addChildNode(SphereNode3D(color: .red) as SCNNode)
+        monAsSphere.position = CGPoint(x: frame.midX - 30, y: frame.midY - 30)
+        addChild(monAsSphere)
 
-        addChild(momAsCircle)
-
-        dollAsCircle = CircleNode(
-            radius: brickWidth/2,
-            position: floor.randomElement()!,
-            color: .white
-        ) as SKShapeNode
-
-        addChild(dollAsCircle)
+        dollAsSphere.scnScene = SCNScene()
+        dollAsSphere.scnScene?.rootNode.addChildNode(SphereNode3D(color: .white) as SCNNode)
+        dollAsSphere.position = CGPoint(x: frame.midX - 50, y: frame.midY - 50)
+        addChild(dollAsSphere)
 
         let background = SKSpriteNode(imageNamed: "floor")
         background.position = CGPoint(x: size.width, y: size.height)
@@ -95,7 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bodyB = contact.bodyB.node
 
         // Verifique se a boyAsCircle tocou na dollAsCircle
-        if (bodyA == boyAsCircle && bodyB == dollAsCircle) || (bodyA == dollAsCircle && bodyB == boyAsCircle) {
+        if (bodyA == boyAsSphere && bodyB == dollAsSphere) || (bodyA == dollAsSphere && bodyB == boyAsSphere) {
             let alert = UIAlertController(title: "Vc pegou a boneca", message: "Parabéns!", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
@@ -104,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         // Verifique se a momAsCircle tocou na boyAsCircle
-        if (bodyA == momAsCircle && bodyB == boyAsCircle) || (bodyA == boyAsCircle && bodyB == momAsCircle) {
+        if (bodyA == monAsSphere && bodyB == boyAsSphere) || (bodyA == boyAsSphere && bodyB == monAsSphere) {
             let alert = UIAlertController(title: "Mamãe ti pegou", message: "Perdeu", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
@@ -113,7 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         // Verifique se a momAsCircle tocou na dollAsCircle
-        if (bodyA == momAsCircle && bodyB == dollAsCircle) || (bodyA == dollAsCircle && bodyB == momAsCircle) {
+        if (bodyA == monAsSphere && bodyB == dollAsSphere) || (bodyA == dollAsSphere && bodyB == monAsSphere) {
             let alert = UIAlertController(title: "Mamãe pegou a boneca", message: "Vc voltará ao inicio", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
@@ -126,9 +120,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let gravityX = manager?.deviceMotion?.gravity.y,
            let gravityY = manager?.deviceMotion?.gravity.x
            {
-            boyAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
-            momAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
-            dollAsCircle.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            boyAsSphere.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            monAsSphere.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            dollAsSphere.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
         }
 
     }

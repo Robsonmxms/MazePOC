@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class CircleNode: SKShapeNode {
+class CircleNode2D: SKShapeNode {
 
     init(radius: CGFloat, position: CGPoint, color: UIColor) {
         super.init()
