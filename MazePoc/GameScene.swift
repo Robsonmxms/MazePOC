@@ -17,9 +17,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     private let brickWidth: CGFloat = 30
 
-    lazy var boyAsSphere = SK3DNode(viewportSize: CGSize(width: 30, height: 30))
-    lazy var monAsSphere = SK3DNode(viewportSize: CGSize(width: 30, height: 30))
-    lazy var dollAsSphere = SK3DNode(viewportSize: CGSize(width: 30, height: 30))
+    private lazy var boyAsSphereSKNode = SKNode()
+    private lazy var momAsSphereSKNode = SKNode()
+    private lazy var dollAsSphereSKNode = SKNode()
 
     override func didMove(to view: SKView) {
 
@@ -60,22 +60,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(wallBrick)
         }
 
-        let boyPositionX = floor.randomElement()!
+        let boyAsSphereSCNNode = SphereSCNNode(color: .blue) as SCNNode
 
-        boyAsSphere.scnScene = SCNScene()
-        boyAsSphere.scnScene?.rootNode.addChildNode(SphereNode3D(color: .blue) as SCNNode)
-        boyAsSphere.position = CGPoint(x: frame.midX, y: frame.midY)
-        addChild(boyAsSphere)
+        boyAsSphereSKNode = SphereSKNode(
+            brickWidth: brickWidth,
+            sphereSCNNode: boyAsSphereSCNNode,
+            position: floor.randomElement()!
+        ) as SKNode
 
-        monAsSphere.scnScene = SCNScene()
-        monAsSphere.scnScene?.rootNode.addChildNode(SphereNode3D(color: .red) as SCNNode)
-        monAsSphere.position = CGPoint(x: frame.midX - 30, y: frame.midY - 30)
-        addChild(monAsSphere)
+        addChild(boyAsSphereSKNode)
 
-        dollAsSphere.scnScene = SCNScene()
-        dollAsSphere.scnScene?.rootNode.addChildNode(SphereNode3D(color: .white) as SCNNode)
-        dollAsSphere.position = CGPoint(x: frame.midX - 50, y: frame.midY - 50)
-        addChild(dollAsSphere)
+        let momAsSphereSCNNode = SphereSCNNode(color: .red) as SCNNode
+
+        momAsSphereSKNode = SphereSKNode(
+            brickWidth: brickWidth,
+            sphereSCNNode: momAsSphereSCNNode,
+            position: floor.randomElement()!
+        ) as SKNode
+
+        addChild(momAsSphereSKNode)
+
+        let dollAsSphereSCNNode = SphereSCNNode(color: .white) as SCNNode
+
+        dollAsSphereSKNode = SphereSKNode(
+            brickWidth: brickWidth,
+            sphereSCNNode: dollAsSphereSCNNode,
+            position: floor.randomElement()!
+        ) as SKNode
+
+        addChild(dollAsSphereSKNode)
 
         let background = SKSpriteNode(imageNamed: "floor")
         background.position = CGPoint(x: size.width, y: size.height)
@@ -88,8 +101,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bodyA = contact.bodyA.node
         let bodyB = contact.bodyB.node
 
-        // Verifique se a boyAsCircle tocou na dollAsCircle
-        if (bodyA == boyAsSphere && bodyB == dollAsSphere) || (bodyA == dollAsSphere && bodyB == boyAsSphere) {
+//         Verifique se a boyAsCircle tocou na dollAsCircle
+        if (bodyA == boyAsSphereSKNode && bodyB == dollAsSphereSKNode) || (bodyA == dollAsSphereSKNode && bodyB == boyAsSphereSKNode) {
             let alert = UIAlertController(title: "Vc pegou a boneca", message: "Parabéns!", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
@@ -97,17 +110,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
 
-        // Verifique se a momAsCircle tocou na boyAsCircle
-        if (bodyA == monAsSphere && bodyB == boyAsSphere) || (bodyA == boyAsSphere && bodyB == monAsSphere) {
-            let alert = UIAlertController(title: "Mamãe ti pegou", message: "Perdeu", preferredStyle: .alert)
+//         Verifique se a momAsCircle tocou na boyAsCircle
+        if (bodyA == momAsSphereSKNode && bodyB == boyAsSphereSKNode) || (bodyA == boyAsSphereSKNode && bodyB == momAsSphereSKNode) {
+            let alert = UIAlertController(title: "Mamãe te pegou", message: "Perdeu", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
             return
         }
 
-        // Verifique se a momAsCircle tocou na dollAsCircle
-        if (bodyA == monAsSphere && bodyB == dollAsSphere) || (bodyA == dollAsSphere && bodyB == monAsSphere) {
+//         Verifique se a momAsCircle tocou na dollAsCircle
+        if (bodyA == momAsSphereSKNode && bodyB == dollAsSphereSKNode) || (bodyA == dollAsSphereSKNode && bodyB == momAsSphereSKNode) {
             let alert = UIAlertController(title: "Mamãe pegou a boneca", message: "Vc voltará ao inicio", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
@@ -120,12 +133,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let gravityX = manager?.deviceMotion?.gravity.y,
            let gravityY = manager?.deviceMotion?.gravity.x
            {
-            boyAsSphere.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
-            monAsSphere.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
-            dollAsSphere.physicsBody?.applyImpulse(CGVector(dx: CGFloat(-gravityX)*150, dy: CGFloat(gravityY)*150))
+            boyAsSphereSKNode.physicsBody?.applyImpulse(CGVector(
+                dx: CGFloat(-gravityX)*150,
+                dy: CGFloat(gravityY)*150)
+            )
+            momAsSphereSKNode.physicsBody?.applyImpulse(CGVector(
+                dx: CGFloat(-gravityX)*150,
+                dy: CGFloat(gravityY)*150)
+            )
+            dollAsSphereSKNode.physicsBody?.applyImpulse(CGVector(
+                dx: CGFloat(-gravityX)*150,
+                dy: CGFloat(gravityY)*150)
+            )
         }
 
     }
+
+    
 
     @objc func increaseTimer() {
         seconds = (seconds ?? 0.0) + 0.01

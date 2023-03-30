@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		146B2B0D29D5B91800DFB563 /* Circle3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B2B0C29D5B91800DFB563 /* Circle3D.swift */; };
+		FE04353B29D60E01009CAB95 /* SphereSKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE04353A29D60E01009CAB95 /* SphereSKNode.swift */; };
 		FE2839EC29CDF8B2006A62E3 /* Circle2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2839EB29CDF8B2006A62E3 /* Circle2D.swift */; };
 		FEFB7D3029CC7263007AE506 /* MazePOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D2F29CC7263007AE506 /* MazePOCApp.swift */; };
 		FEFB7D3629CC7263007AE506 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFB7D3529CC7263007AE506 /* GameScene.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		146B2B0C29D5B91800DFB563 /* Circle3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle3D.swift; sourceTree = "<group>"; };
+		FE04353A29D60E01009CAB95 /* SphereSKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereSKNode.swift; sourceTree = "<group>"; };
 		FE2839EB29CDF8B2006A62E3 /* Circle2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle2D.swift; sourceTree = "<group>"; };
 		FEFB7D2C29CC7263007AE506 /* MazePoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazePoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFB7D2F29CC7263007AE506 /* MazePOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazePOCApp.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				FEFB7D4829CCB3D5007AE506 /* Maze.swift */,
 				FE2839EB29CDF8B2006A62E3 /* Circle2D.swift */,
 				146B2B0C29D5B91800DFB563 /* Circle3D.swift */,
+				FE04353A29D60E01009CAB95 /* SphereSKNode.swift */,
 				FEFB7D3729CC7263007AE506 /* GameView.swift */,
 				FEFB7D3C29CC7264007AE506 /* Assets.xcassets */,
 				FEFB7D3E29CC7264007AE506 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				FE2839EC29CDF8B2006A62E3 /* Circle2D.swift in Sources */,
 				FEFB7D3629CC7263007AE506 /* GameScene.swift in Sources */,
+				FE04353B29D60E01009CAB95 /* SphereSKNode.swift in Sources */,
 				FEFB7D4929CCB3D5007AE506 /* Maze.swift in Sources */,
 				FEFB7D3829CC7263007AE506 /* GameView.swift in Sources */,
 				146B2B0D29D5B91800DFB563 /* Circle3D.swift in Sources */,
@@ -290,6 +294,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -321,6 +326,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
